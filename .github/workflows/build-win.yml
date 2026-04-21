@@ -32,7 +32,7 @@ jobs:
         run: npm run test
 
       - name: Build Windows installer
-        run: npm run build:win
+        run: npm run build:win -- --publish never
 
       - name: Debug dist folder
         if: always()
