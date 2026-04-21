@@ -1,0 +1,48 @@
+{
+  "name": "speachtowrite-local",
+  "version": "0.1.0",
+  "description": "Aplicatie desktop locala pentru dictare in romana si redactare DOCX",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/renderer.js",
+    "test": "node --test",
+    "qa:mac": "bash ./scripts/qa-macos.sh",
+    "qa:win": "powershell -ExecutionPolicy Bypass -File ./scripts/qa-windows.ps1",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "docx": "^9.6.1"
+  },
+  "build": {
+    "appId": "com.speachtowrite.local",
+    "productName": "SpeechToWrite Local",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    }
+  }
+}

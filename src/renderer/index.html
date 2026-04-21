@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeechToWrite Local</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="panel left">
+        <h2>Proiecte</h2>
+        <div class="inline-row">
+          <input id="newProjectTitle" type="text" placeholder="Titlu proiect" />
+          <button id="createProjectBtn">Creează</button>
+        </div>
+        <ul id="projectsList" class="list"></ul>
+      </aside>
+
+      <main class="panel center">
+        <div class="title-row">
+          <h1 id="projectTitle">Selectează un proiect</h1>
+          <button id="exportDocxBtn" disabled>Export DOCX</button>
+        </div>
+
+        <section class="section-manager">
+          <h3>Secțiuni</h3>
+          <div class="inline-row">
+            <input id="newSectionTitle" type="text" placeholder="Titlu secțiune" />
+            <button id="createSectionBtn" disabled>Adaugă</button>
+          </div>
+          <ul id="sectionsList" class="list compact"></ul>
+        </section>
+
+        <section>
+          <div class="title-row">
+            <h3 id="editorSectionTitle">Editor</h3>
+            <button id="saveEditorBtn" disabled>Salvează text</button>
+          </div>
+          <div class="inline-row editor-tools">
+            <input id="searchInput" type="text" placeholder="Caută în secțiune" />
+            <input id="replaceInput" type="text" placeholder="Înlocuiește cu" />
+            <button id="replaceBtn" disabled>Replace all</button>
+          </div>
+          <textarea id="editor" placeholder="Textul secțiunii selectate" disabled></textarea>
+        </section>
+      </main>
+
+      <aside class="panel right">
+        <h2>Dictare</h2>
+        <div class="actions">
+          <button id="startBtn" disabled>Start</button>
+          <button id="stopBtn" disabled>Stop</button>
+        </div>
+        <div class="status-grid">
+          <div><strong>Status:</strong> <span id="status">idle</span></div>
+          <div><strong>Durată:</strong> <span id="duration">00:00</span></div>
+          <div><strong>Nivel:</strong> <span id="level">0%</span></div>
+          <div><strong>Engine:</strong> <span id="engineUsed">-</span></div>
+        </div>
+        <div class="meter-wrap"><div id="meter" class="meter"></div></div>
+        <div class="result">
+          <h4>Ultima transcriere normalizată</h4>
+          <p id="lastTranscript">-</p>
+          <h4>Mesaj engine</h4>
+          <p id="lastMessage">-</p>
+        </div>
+
+        <section class="settings">
+          <h3>Sesiuni recente</h3>
+          <ul id="sessionsList" class="list compact"></ul>
+        </section>
+
+        <section class="settings">
+          <h3>Setări STT local</h3>
+          <label>Engine</label>
+          <select id="sttEngine">
+            <option value="mock">mock (fără transcriere reală)</option>
+            <option value="whispercpp">whisper.cpp (local)</option>
+          </select>
+
+          <label>Cale executabil whisper.cpp</label>
+          <input id="whisperCppPath" type="text" placeholder="/cale/catre/whisper-cli" />
+          <button id="pickWhisperExecBtn">Alege executabil</button>
+
+          <label>Cale model whisper</label>
+          <input id="whisperModelPath" type="text" placeholder="/cale/catre/ggml-model.bin" />
+          <button id="pickWhisperModelBtn">Alege model</button>
+
+          <button id="saveSettingsBtn">Salvează setări</button>
+          <button id="autoConfigureWhisperBtn">Auto-configure</button>
+          <button id="testWhisperBtn">Testează setup STT</button>
+          <button id="runDiagnosticsBtn">Verificare sistem</button>
+          <p id="diagnosticsText">-</p>
+        </section>
+
+        <section class="settings">
+          <h3>Glosar diacritice</h3>
+          <label>Scope</label>
+          <select id="glossaryScope">
+            <option value="project">project</option>
+            <option value="global">global</option>
+          </select>
+          <label>Fără diacritice / formă brută</label>
+          <input id="glossarySource" type="text" placeholder="ex: bucuresti" />
+          <label>Corectat</label>
+          <input id="glossaryTarget" type="text" placeholder="ex: București" />
+          <button id="addGlossaryBtn">Adaugă termen</button>
+          <ul id="glossaryList" class="list compact"></ul>
+        </section>
+
+        <section class="settings">
+          <h3>Backup local</h3>
+          <button id="createBackupBtn">Creează backup</button>
+          <button id="restoreBackupBtn">Restore backup selectat</button>
+          <ul id="backupsList" class="list compact"></ul>
+        </section>
+      </aside>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

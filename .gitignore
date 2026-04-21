@@ -1,0 +1,8 @@
+node_modules/
+local_data/
+recordings/
+.DS_Store
+npm-debug.log*
+
+# Build artifacts
+dist/
