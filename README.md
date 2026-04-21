@@ -108,3 +108,4 @@ Pentru dictare reală:
 2. Rulezi workflow-ul manual (`Run workflow`) sau faci push de tag `v*`.
 3. La final, descarci artifact-ul `windows-installer`.
 4. În artifact vei găsi installer-ul `.exe` pe care îl poți trimite direct utilizatorului Windows.
+5. Workflow-ul este actualizat pentru runtime Node 24 la nivel de GitHub Actions (compatibil cu deprecarea Node 20 pe runner).

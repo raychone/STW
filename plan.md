@@ -26,6 +26,7 @@
 22. Runbook final de validare adăugat (`FINAL_QA_RUNBOOK.md`).
 23. Execuție `qa:mac` efectuată complet cu succes: `check` + `test` + build DMG (`dist/SpeechToWrite Local-0.1.0.dmg`).
 24. CI Windows adăugat în GitHub Actions (`.github/workflows/build-win.yml`) pentru generare automată installer `.exe`.
+25. Workflow Windows actualizat pentru deprecarea Node 20 în GitHub Actions (checkout/setup-node versiuni noi + runtime Node24 pentru actions + pași de debug artefacte).
 
 ### Ce este finalizat din plan
 

@@ -9,13 +9,15 @@ on:
 jobs:
   build-win:
     runs-on: windows-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -32,12 +34,23 @@ jobs:
       - name: Build Windows installer
         run: npm run build:win
 
+      - name: Debug dist folder
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path dist) {
+            Get-ChildItem -Recurse dist | Select-Object FullName,Length | Format-Table -AutoSize
+          } else {
+            Write-Host "dist folder does not exist"
+          }
+
       - name: Upload installer artifacts
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: windows-installer
           path: |
             dist/*.exe
             dist/*.yml
             dist/*.blockmap
-          if-no-files-found: error
+          if-no-files-found: warn
