@@ -43,6 +43,7 @@ Structură:
 2. Windows installer NSIS: `npm run build:win`
 3. QA complet macOS (checks + test + build): `npm run qa:mac`
 4. QA complet Windows (checks + test + build): `npm run qa:win`
+5. Build Windows în GitHub Actions: workflow `.github/workflows/build-win.yml`
 
 Notă: în mod normal, build-ul mac se face pe macOS, iar build-ul Windows pe Windows/CI.
 
@@ -100,3 +101,10 @@ Pentru dictare reală:
 
 1. Pentru închiderea planului folosește checklist-ul: `ACCEPTANCE_CHECKLIST.md`.
 2. Pentru pașii de build+validare finală pe OS, folosește: `FINAL_QA_RUNBOOK.md`.
+
+## Livrare `.exe` din GitHub Actions
+
+1. Mergi în repo -> `Actions` -> `Build Windows Installer`.
+2. Rulezi workflow-ul manual (`Run workflow`) sau faci push de tag `v*`.
+3. La final, descarci artifact-ul `windows-installer`.
+4. În artifact vei găsi installer-ul `.exe` pe care îl poți trimite direct utilizatorului Windows.

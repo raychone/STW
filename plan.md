@@ -25,6 +25,7 @@
 21. Scripturi QA cross-platform adăugate (`qa:mac`, `qa:win`) pentru flux complet check+test+build.
 22. Runbook final de validare adăugat (`FINAL_QA_RUNBOOK.md`).
 23. Execuție `qa:mac` efectuată complet cu succes: `check` + `test` + build DMG (`dist/SpeechToWrite Local-0.1.0.dmg`).
+24. CI Windows adăugat în GitHub Actions (`.github/workflows/build-win.yml`) pentru generare automată installer `.exe`.
 
 ### Ce este finalizat din plan
 
@@ -41,8 +42,9 @@
 1. Configurare efectivă `whisper.cpp` pe laptopul tău (cale executabil + model real).
 2. Extindere glosar pe vocabularul tău real (iterații pe date dictare reale).
 3. Testare de acceptanță pe documente de 30-100 pagini (în utilizarea ta reală) + reglaj performanță (CPU/RAM).
-4. Execuție finală runbook QA pe Windows + bifare integrală checklist.
-5. Fine-tuning UX final după feedback real (mesaje, etichete, onboarding).
+4. Rulare workflow GitHub Actions pentru Windows și validare installer `.exe` pe un laptop Windows.
+5. Execuție finală runbook QA pe Windows + bifare integrală checklist.
+6. Fine-tuning UX final după feedback real (mesaje, etichete, onboarding).
 
 ---
 
